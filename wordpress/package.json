@@ -1,0 +1,20 @@
+{
+  "name": "k8x",
+  "private": true,
+  "version": "0.0.0",
+  "devDependencies": {
+    "@kubernetix/types": "1.0.0",
+    "@kubernetix/k8x": "0.0.1"
+  },
+  "chart": {
+    "appVersion": "6.6.1",
+    "kubeVersion": "1.31",
+    "type": "application",
+    "keywords": ["cms", "wordpress", "author"],
+    "home": "https://github.com/kubernetix/charts/wordpress",
+    "maintainers": ["Niklas Hanft"],
+    "icon": null,
+    "deprecated": false,
+    "annotations": []
+  }
+}
