@@ -1,9 +1,0 @@
-{
-  "name": "@kubernetix/charts",
-  "version": "0.0.1",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kubernetix/charts.git"
-  }
-}
