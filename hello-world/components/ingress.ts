@@ -1,15 +1,15 @@
 export type MyIngressProps = {
   name: string;
-  appRoot?: string;
+  appRoot: string;
   annotations?: Record<string, string>;
   additionalPaths: string[];
 };
 
 const defaultBackend: k8x.IngressPath["backend"] = {
   service: {
-    name: "super-duper-service",
+    name: "my-app",
     port: {
-      number: 8080,
+      number: 80,
     },
   },
 };
@@ -38,8 +38,9 @@ export default (props: MyIngressProps): k8x.Ingress => ({
   },
   metadata: {
     name: props.name,
+    namespace: "fault", // will be overriden by top level namespace
     annotations: {
-      "nginx.ingress.kubernetes.io/app-root": "/var/www/html",
+      "nginx.ingress.kubernetes.io/app-root": props.appRoot,
       "nginx.ingress.kubernetes.io/enable-cors": "true",
       "nginx.ingress.kubernetes.io/cors-allow-origin": "https://example.com",
       ...props.annotations,
