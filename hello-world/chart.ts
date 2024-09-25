@@ -17,8 +17,11 @@ const values: { namespace: string, ingress: MyIngressProps } = {
 };
 
 export default (): k8x.Chart => ({
-  name: "default",
-  namespace: values.namespace,
+  namespace: {
+    kind: "Namespace",
+    apiVersion: "v1",
+    metadata: { name: values.namespace }
+  },
   components: [
     MyIngress(values.ingress),
     Deployment({ name: "my-deployment" }),
