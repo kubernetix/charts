@@ -19,7 +19,6 @@ jobs:
       - run: mv ./k8x ~/.local/bin/k8x
       - run: k8x version
       - uses: actions/checkout@v1
-      - run: cd whoami
       - run: mkdir ~/.kube
       - run: echo "$KUBE" > ~/.kube/config
-      - run: K8X_WHOAMI_NAMESPACE=cicd K8X_WHOAMI_REPLICAS=1 K8X_WHOAMI_DOMAIN=ga-whoami.pfusch.dev k8x render
+      - run: K8X_WHOAMI_NAMESPACE=cicd K8X_WHOAMI_REPLICAS=1 K8X_WHOAMI_DOMAIN=ga-whoami.pfusch.dev k8x render /home/runner/work/charts/charts/whoami/chart.ts
