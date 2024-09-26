@@ -7,11 +7,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: curl -o kubectl "https://dl.k8s.io/release/v1.31.1/bin/linux/amd64/kubectl"
+      - run: curl -Lo kubectl "https://dl.k8s.io/release/v1.31.1/bin/linux/amd64/kubectl"
       - run: chmod +x kubectl
       - run: mkdir -p ~/.local/bin
       - run: mv ./kubectl ~/.local/bin/kubectl
-      - run: curl -o k8x "https://github.com/kubernetix/k8x/releases/download/v0.4.1-alpha/k8x-linux-x86_64"
+      - run: curl -Lo k8x "https://github.com/kubernetix/k8x/releases/download/v0.4.1-alpha/k8x-linux-x86_64"
       - run: chmod +x k8x
       - run: mv ./k8x ~/.local/bin/k8x
       - run: k8x version
