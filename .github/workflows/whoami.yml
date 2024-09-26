@@ -4,10 +4,10 @@ on:
   push:
 
 env:
-  KUBE: null
+  KUBE: ${{ secrets.KUBE }}
 
 jobs:
-  install:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - run: curl -Lo kubectl "https://dl.k8s.io/release/v1.31.1/bin/linux/amd64/kubectl"
@@ -18,9 +18,7 @@ jobs:
       - run: chmod +x k8x
       - run: mv ./k8x ~/.local/bin/k8x
       - run: k8x version
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
+      - uses: actions/checkout@v1
       - run: cd whoami
       - run: mkdir ~/.kube
       - run: echo "$KUBE" > ~/.kube/config
