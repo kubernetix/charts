@@ -1,0 +1,24 @@
+{
+  "name": "@kubernetix/nginx-ingress-controller",
+  "private": true,
+  "version": "0.0.0",
+  "devDependencies": {
+    "@kubernetix/types": "file:///../../types"
+  },
+  "appVersion": "6.6.1",
+  "kubeVersion": "1.31",
+  "type": "application",
+  "keywords": [
+    "cms",
+    "wordpress",
+    "author"
+  ],
+  "home": "https://github.com/kubernetix/charts/nginx-ingress-controller",
+  "repository": "https://github.com/kubernetix/charts/nginx-ingress-controller",
+  "maintainers": [
+    "Niklas Hanft"
+  ],
+  "icon": "",
+  "deprecated": false,
+  "annotations": []
+}
