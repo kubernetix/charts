@@ -1,19 +1,20 @@
 export type MyDeploymentProps = {
-  name: string;
+  replicas: number;
 };
 
 export default (props: MyDeploymentProps): k8x.Deployment => ({
   apiVersion: "apps/v1",
   kind: "Deployment",
   spec: {
-    selector: { matchLabels: { app: "my-app" } },
+    replicas: props.replicas,
+    selector: { matchLabels: { app: "whoami" } },
     template: {
-      metadata: { name: "my-app", labels: { app: "my-app" } },
+      metadata: { name: "whoami", labels: { app: "whoami" } },
       spec: {
         containers: [
           {
-            image: "nginx:latest",
-            name: "my-app",
+            image: "traefik/whoami",
+            name: "whoami",
             ports: [{ containerPort: 80, protocol: "TCP" }],
           },
         ],
@@ -21,6 +22,6 @@ export default (props: MyDeploymentProps): k8x.Deployment => ({
     },
   },
   metadata: {
-    name: props.name,
+    name: 'whoami-deployment',
   },
 });

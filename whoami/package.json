@@ -7,7 +7,7 @@
   },
   "appVersion": "6.6.1",
   "kubeVersion": "1.31",
-  "type": "application",
+  "type": "module",
   "keywords": [
     "cms",
     "wordpress",
