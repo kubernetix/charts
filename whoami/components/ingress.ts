@@ -23,6 +23,6 @@ export default (props: MyIngressProps): k8x.Ingress => ({
   },
   metadata: {
     name: "whoami-ingress",
-    annotations: { "kubernetes.io/ingress.class": "nginx" }
+    annotations: { "kubernetes.io/ingress.class": "nginx", "nginx.ingress.kubernetes.io/configuration-snippet": `more_set_headers "X-Forwarded-Host-Test: US";` }
   },
 });
