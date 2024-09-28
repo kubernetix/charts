@@ -14,11 +14,11 @@ jobs:
       - run: chmod +x kubectl
       - run: mkdir -p ~/.local/bin
       - run: mv ./kubectl ~/.local/bin/kubectl
-      - run: curl -Lo k8x "https://github.com/kubernetix/k8x/releases/download/v0.4.1-alpha/k8x-linux-x86_64"
+      - run: curl -Lo k8x "https://github.com/kubernetix/k8x/releases/download/v0.4.2-alpha/k8x-linux-x86_64"
       - run: chmod +x k8x
       - run: mv ./k8x ~/.local/bin/k8x
       - run: k8x version
       - uses: actions/checkout@v1
       - run: mkdir ~/.kube
       - run: echo "$KUBE" > ~/.kube/config
-      - run: K8X_WHOAMI_NAMESPACE=cicd K8X_WHOAMI_REPLICAS=1 K8X_WHOAMI_DOMAIN=ga-whoami.pfusch.dev k8x render /home/runner/work/charts/charts/whoami/chart.ts
+      - run: K8X_WHOAMI_NAMESPACE=cicd K8X_WHOAMI_REPLICAS=1 K8X_WHOAMI_DOMAIN=ga-whoami.pfusch.dev k8x install /home/runner/work/charts/charts/whoami/chart.ts
