@@ -23,9 +23,6 @@ export default (props: MyIngressProps): k8x.Ingress => ({
   },
   metadata: {
     name: "whoami-ingress",
-    annotations: { 
-      "kubernetes.io/ingress.class": "nginx", 
-      "nginx.ingress.kubernetes.io/configuration-snippet": `add_header X-server-header "${JSON.stringify($chart)}";` 
-    }
+    annotations: { "kubernetes.io/ingress.class": "nginx" },
   },
 });
